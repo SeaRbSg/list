@@ -3,4 +3,13 @@ name = "list"
 version = "0.1.0"
 authors = ["Scott Windsor <swindsor@gmail.com>"]
 
+[lib]
+name = "list"
+path = "src/lib.rs"
+
+
+[[bin]]
+name = "list"
+path = "src/main.rs"
+
 [dependencies]

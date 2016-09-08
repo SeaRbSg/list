@@ -1,16 +1,11 @@
-use std::io;
+extern crate list;
 
-fn main() {
-    println!("Tell me your name.");
+use list::{write, eval, read};
 
-    let mut name = String::new();
+pub fn main() {
+    println!("Welcome to List. Use Ctrl-C to exit.");
 
-    io::stdin()
-        .read_line(&mut name)
-        .ok()
-        .expect("Failed to read line");
-
-    name.pop();
-
-    println!("Hello, {}!", name);
+    loop {
+        write(eval(read()));
+    }
 }
