@@ -11,10 +11,10 @@ This is an attempt to write a simple lisp (scheme) implementation in rust. This 
 
 ## Progress
 - [x] Hello, REPL!
-- [] Parsing and evaluating integers
-- [] Parsing atoms (strings)
-- [] Adding lists
-- [] Adding symbols and environment
-- [] Adding lambdas
-- [] Adding functions (builtin)
-- [] Bootstrap stdlib
+- [ ] Parsing and evaluating integers
+- [ ] Parsing atoms (strings)
+- [ ] Adding lists
+- [ ] Adding symbols and environment
+- [ ] Adding lambdas
+- [ ] Adding functions (builtin)
+- [ ] Bootstrap stdlib
