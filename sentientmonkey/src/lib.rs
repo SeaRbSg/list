@@ -1,24 +1,38 @@
-use std::io::{self, Write};
+use std::io;
+use std::io::prelude::*;
 
-pub fn read() -> String {
-    let mut input = String::new();
+#[derive(Debug)]
+pub enum Lval {
+    Num(i64),
+}
+
+impl Lval {
+    fn to_string(&self) -> String {
+        match *self {
+            Lval::Num(i) => i.to_string(),
+        }
+    }
+}
+
+pub fn read() -> Result<Lval, io::Error> {
     print!("> ");
     io::stdout().flush().unwrap();
 
-    io::stdin()
-        .read_line(&mut input)
-        .ok()
-        .expect("Failed to read line");
 
-    input.pop();
+    let input: Result<i64, io::Error> = std::io::stdin()
+        .bytes()
+        .map(|byte| byte as i64);
 
-    return input;
+    return input.and_then(|i| Lval::Num(i));
 }
 
-pub fn eval(s: String) -> String {
-    s
+pub fn eval(l: Result<Lval, io::Error>) -> Result<Lval, io::Error> {
+    l
 }
 
-pub fn write(s: String) {
-    println!("{}", s);
+pub fn write(l: Result<Lval, io::Error>) {
+    match l {
+        Ok(v) => println!("{:?}", v.to_string()),
+        Err(v) => println!("Error: {}", v),
+    }
 }
